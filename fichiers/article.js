@@ -1,7 +1,5 @@
-
 export const createArticle = (data) => {
   const containerArticles = document.querySelector(".cards");
-
   const { id, name, ingredients, description, image, time } = data;
   const article = document.createElement("article");
   const imagePlat = document.createElement("img");
@@ -21,16 +19,16 @@ export const createArticle = (data) => {
   containerRecette.classList = "container-recette";
   const recette = document.createElement("p");
   recette.textContent = "RECETTE";
-  recette.classList = "titre-color"
+  recette.classList = "titre-color";
   const recetteTexte = document.createElement("p");
   recetteTexte.textContent = description;
   recetteTexte.classList = "recette-texte";
 
   const containerIngredient = document.createElement("div");
-  containerIngredient.classList = "container-ingredient"
+  containerIngredient.classList = "container-ingredient";
   const ingredient = document.createElement("p");
   ingredient.textContent = "INGRÉDIENTS";
-  ingredient.classList = "titre-color"
+  ingredient.classList = "titre-color";
 
   const ingredientList = document.createElement("ul");
   ingredientList.classList = "liste-ingredients";
@@ -71,8 +69,5 @@ export const createArticle = (data) => {
   containerDescriptionRecette.appendChild(title);
   containerDescriptionRecette.appendChild(containerRecette);
   containerDescriptionRecette.appendChild(containerIngredient);
-
   containerArticles.appendChild(article);
 };
-
-

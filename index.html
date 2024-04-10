@@ -33,7 +33,7 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
-    <script src="./fichiers/connecte.js" type="module" defer></script>
+    <script src="./fichiers/main.js" type="module" defer></script>
   </head>
   <body>
     <header class="bg-image container custom-header bg-no-repeat">
@@ -55,7 +55,15 @@
 
         <section class="container section-recherche-header">
           <div class="fa-solid">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="d-flex border">
+              <input
+                class="form-control border-0 search-bar"
+                type="text"
+                placeholder=" "
+              />
+              <i class="bi bi-x"></i>
+              <i class="bi bi-search"></i>
+            </div>
           </div>
         </section>
       </div>
@@ -68,7 +76,11 @@
         </button>
         <div class="dropdown-menu p-2 dropdown-content">
           <div class="d-flex border">
-            <input class="form-control border-0 dropdown-input" type="text" placeholder=" " />
+            <input
+              class="form-control border-0 dropdown-input"
+              type="text"
+              placeholder=" "
+            />
             <i class="bi bi-x"></i>
             <i class="bi bi-search"></i>
           </div>
@@ -77,31 +89,40 @@
         </div>
       </div>
 
-      <div class="dropdown">
-        <button class="btn" type="button" id="button-applicance">
+      <div class="dropdown p-1 container" id="dropdown-appareils">
+        <button class="btn bg-white dropdown-button" type="button">
           Appareils
           <img />
         </button>
-        <div class="dropdown-menu" id="dropdown-appliance">
-          <input type="text" placeholder=" " />
-          <div>
+        <div class="dropdown-menu p-2 dropdown-content">
+          <div class="d-flex border">
+            <input
+              class="form-control border-0 dropdown-input"
+              type="text"
+              placeholder=" "
+            />
             <i class="bi bi-x"></i>
             <i class="bi bi-search"></i>
           </div>
+          <ul class="dropdown-list"></ul>
         </div>
       </div>
-
-      <div class="dropdown">
-        <button class="btn" type="button" id="button-ustensils">
-          Ustensiles
+      <div class="dropdown p-1 container" id="dropdown-ustensils">
+        <button class="btn bg-white dropdown-button" type="button">
+          Ustensils
           <img />
         </button>
-        <div class="dropdown-menu" id="dropdown-ustensils">
-          <input type="text" placeholder=" " />
-          <div>
+        <div class="dropdown-menu p-2 dropdown-content">
+          <div class="d-flex border">
+            <input
+              class="form-control border-0 dropdown-input"
+              type="text"
+              placeholder=" "
+            />
             <i class="bi bi-x"></i>
             <i class="bi bi-search"></i>
           </div>
+          <ul class="dropdown-list"></ul>
         </div>
       </div>
     </section>

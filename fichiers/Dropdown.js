@@ -1,3 +1,5 @@
+import { showRecipes } from "./main.js";
+
 export class Dropdown {
   constructor(id) {
     this.id = id;
@@ -13,6 +15,8 @@ export class Dropdown {
       event.preventDefault;
       this.filterChange();
     });
+    this.onChange = () => {};
+    this.filters = [];
   }
 
   open() {
@@ -27,20 +31,27 @@ export class Dropdown {
 
   updateDOM() {
     this.listElement.innerHTML = "";
-    this.list.forEach((ingredient) => {
+    let list = this.list;
+    if (this.filter != "") {
+      list = this.list.filter((item) => item.includes(this.filter));
+    }
+    list.forEach((ingredient) => {
       const listItem = document.createElement("li");
+      listItem.addEventListener("click", () => {
+        this.selectFilter(listItem.textContent);
+      });
       listItem.textContent = ingredient;
       this.listElement.appendChild(listItem);
     });
   }
 
   filterChange() {
-    const filterValue = this.inputElement.value.toLowerCase();
-    const listItems = this.listElement.querySelectorAll("li");
-    listItems.forEach((item) => {
-      const itemText = item.textContent.toLowerCase();
-      const isVisible = itemText.includes(filterValue);
-      item.style.display = isVisible ? "block" : "none";
-    });
+    this.filter = this.inputElement.value.trim().toLowerCase();
+    this.updateDOM();
   }
-}
+
+  selectFilter(element) {
+    this.filters.push(element);
+   this.onChange(this.filters);
+  }
+};
