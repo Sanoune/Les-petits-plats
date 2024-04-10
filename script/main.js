@@ -59,9 +59,8 @@ function main() {
   updateFilters(recipes);
 
   dropdownIngredients.onChange = (filters) => {
-    const lol = [];
+    const newTabFilter = [];
     for (let i = 0; i < recipes.length; i++) {
-      recipes[i].ingredients;
       let resultatAllFilters = true;
       for (let x = 0; x < filters.length; x++) {
         let resultatfilters = false;
@@ -79,44 +78,95 @@ function main() {
         }
       }
       if (resultatAllFilters) {
-        lol.push(recipes[i]);
+        newTabFilter.push(recipes[i]);
       }
     }
-    showRecipes(lol);
-    updateFilters(lol);
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
   };
+
+  dropdownAppareills.onChange = (filters) => {
+    const newTabFilter = [];
+    for (let i = 0; i < recipes.length; i++) {
+      let resultatAllFilters = true;
+      for (let x = 0; x < filters.length; x++) {
+        if (filters[x] !== recipes[i].appliance.trim().toLocaleLowerCase()) {
+          resultatAllFilters = false;
+        }
+      }
+      if (resultatAllFilters) {
+        newTabFilter.push(recipes[i]);
+      }
+    }
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
+  };
+
+  
+  dropdownUstensils.onChange = (filters) => {
+    const newTabFilter = [];
+    for (let i = 0 ; i < recipes.length ; i++) {
+      let resultatAllFilters = true;
+        for (let x = 0 ; x < filters.length; x++){
+          let resultatfilters = false;
+            for (let y = 0 ; y < recipes[i].ustensils.length; y ++){
+              if (
+                filters[x] ===
+                recipes[i].ustensils[y].trim().toLowerCase()
+              ) {
+                resultatfilters = true;
+               
+              }
+            }
+            if (!resultatfilters) {
+              resultatAllFilters = false;
+            }
+
+        }
+        if (resultatAllFilters) {
+          newTabFilter.push(recipes[i]);
+        }
+
+    }
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
+
+  }
 
   const searchBar = () => {
     const inputSearchBar = document.querySelector(".search-bar");
     inputSearchBar.addEventListener("input", (event) => {
       event.preventDefault;
-      let recettesCorrespondantesSet = new Set();
+      let recettesCorrespondantes = [];
       if (inputSearchBar.value.length < 3) {
         showRecipes(recipes);
       }
       if (inputSearchBar.value.length >= 3) {
-        const searchValue = inputSearchBar.value.toLowerCase().trim();
+        const searchValue = inputSearchBar.value.toLowerCase();
         recipes.forEach((recipe) => {
-          if (recipe.name.toLocaleLowerCase().trim().includes(searchValue)) {
-            recettesCorrespondantesSet.add(recipe);
+          let recetteValide = false;
+          if (recipe.name.toLocaleLowerCase().includes(searchValue)) {
+            recetteValide = true;
           }
-          if (
-            recipe.description.toLocaleLowerCase().trim().includes(searchValue)
-          ) {
-            recettesCorrespondantesSet.add(recipe);
+          if (recipe.description.toLocaleLowerCase().includes(searchValue)) {
+            recetteValide = true;
           }
 
           recipe.ingredients.forEach((ingredient) => {
             if (
-              ingredient.ingredient.toLocaleLowerCase().trim().includes(searchValue)
+              ingredient.ingredient.toLocaleLowerCase().includes(searchValue)
             ) {
-              recettesCorrespondantesSet.add(recipe);
+              recetteValide = true;
             }
-          })
-          
+          });
+          if (recetteValide) {
+            recettesCorrespondantes.push(recipe);
+          }
         });
-        const recettesCorrespondantes = Array.from(recettesCorrespondantesSet);
+
         showRecipes(recettesCorrespondantes);
+        updateFilters(recettesCorrespondantes);
+        console.log(recettesCorrespondantes);
       }
     });
   };
@@ -126,4 +176,6 @@ function main() {
 
 main();
 
-
+// supprimer les tag
+// ecouter quand je click sur un tag recuperer la valeur des tags,
+// quand je click sur le button parent du tag // remoov le tag supp du tableau supp physiquement

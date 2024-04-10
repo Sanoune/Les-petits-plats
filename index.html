@@ -33,59 +33,172 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
-    <script src="./fichiers/main.js" type="module" defer></script>
+    <script src="./script/main.js" type="module" defer></script>
   </head>
   <body>
-    <header class="bg-image container custom-header bg-no-repeat">
-      <img class="header-img" src="./assets/img-background.png" alt="plat" />
-      <div class="container container-header">
-        <div class="container">
-          <img
-            class="mt-5"
-            src="./assets/logo/Les petits plats.png"
-            alt="logo"
-          />
-        </div>
-        <section class="container section-text-home">
-          <h2>
-            CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET
-            DÉLICIEUSES
-          </h2>
-        </section>
-
-        <section class="container section-recherche-header">
-          <div class="fa-solid">
-            <div class="d-flex border">
-              <input
-                class="form-control border-0 search-bar"
-                type="text"
-                placeholder=" "
-              />
-              <i class="bi bi-x"></i>
-              <i class="bi bi-search"></i>
-            </div>
+    <header class="bg-primary container-fluid custom-header bg-no-repeat">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="d-flex justify-content-start">
+            <img
+              class="mt-5 d-block"
+              src="./assets/logo/Les petits plats.png"
+              alt="logo"
+            />
+            <img
+              class="mt-5 d-block"
+              src="./assets/logo/point.png"
+              alt="point"
+            />
           </div>
-        </section>
+          <div class="col-md-12 text-center">
+            <section class="section-text-home mt-10">
+              <h2 class="text-center">
+                CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET
+                DÉLICIEUSES
+              </h2>
+            </section>
+          </div>
+          <div class="col-md-12">
+            <section class="section-recherche-header">
+              <div class="input-group border bg-white">
+                <input
+                  type="text"
+                  class="form-control border-0 search-bar"
+                  placeholder="Recherche"
+                />
+                <div class="input-group-append d-flex align-items-center">
+                  <span class="input-group-text bg-white border-0">
+                    <i class="bi bi-search"></i>
+                  </span>
+                  <span class="input-group-text bg-white border-0">
+                    <i class="bi bi-x croix"></i>
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
     </header>
-    <section class="container d-flex justify-content-between dropDown">
-      <div class="dropdown p-1 container" id="dropdown-ingredients">
+
+    <section
+      class="container d-flex dropDown"
+    >
+      <div class="">
+        <div class="dropdown" id="dropdown-ingredients">
+          <button class="btn bg-white dropdown-button w-100" type="button">
+            Ingredients
+            <img />
+          </button>
+          <div class="dropdown-menu p-2 dropdown-content">
+            <div class="input-group border">
+              <input
+                type="text"
+                class="form-control dropdown-input border-0"
+                placeholder="Recherche"
+              />
+              <div class="input-group-append d-flex align-items-center">
+                <span class="input-group-text bg-white border-0"
+                  ><i class="bi bi-search"></i
+                ></span>
+                <span class="input-group-text bg-white border-0"
+                  ><i class="bi bi-x croix"></i
+                ></span>
+              </div>
+            </div>
+            <ul class="dropdown-list list-unstyled"></ul>
+          </div>
+        </div>
+        <div>
+          <ul class="newFilter-ingredients list-unstyled"></ul>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="dropdown" id="dropdown-appareils">
+          <button class="btn bg-white dropdown-button w-100" type="button">
+            Appareils
+            <img />
+          </button>
+          <div class="dropdown-menu p-2 dropdown-content">
+            <div class="input-group border">
+              <input
+                type="text"
+                class="form-control dropdown-input border-0"
+                placeholder="Recherche"
+              />
+              <div class="input-group-append d-flex align-items-center">
+                <span class="input-group-text bg-white border-0"
+                  ><i class="bi bi-search"></i
+                ></span>
+                <span class="input-group-text bg-white border-0"
+                  ><i class="bi bi-x croix"></i
+                ></span>
+              </div>
+            </div>
+            <ul class="dropdown-list list-unstyled"></ul>
+          </div>
+        </div>
+        <div>
+          <ul class="newFilter-ingredients list-unstyled"></ul>
+        </div>
+      </div>
+
+      <div class="">
+      <div class="dropdown" id="dropdown-ustensils">
+        <button class="btn bg-white dropdown-button w-100" type="button">
+          Ustensils
+          <img />
+        </button>
+        <div class="dropdown-menu p-2 dropdown-content">
+          <div class="input-group border">
+            <input
+              type="text"
+              class="form-control dropdown-input border-0"
+              placeholder="Recherche"
+            />
+            <div class="input-group-append d-flex align-items-center">
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-search"></i
+              ></span>
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-x croix"></i
+              ></span>
+            </div>
+          </div>
+          <ul class="dropdown-list list-unstyled"></ul>
+        </div>
+      </div>
+      <div>
+        <ul class="newFilter-ingredients list-unstyled"></ul>
+      </div>
+    </div>
+    </section>
+
+    <!-- <section class="container row d-flex dropDown">
+      <div class="dropdown p-1 col-12" id="dropdown-ingredients">
         <button class="btn bg-white dropdown-button" type="button">
           Ingredients
           <img />
         </button>
         <div class="dropdown-menu p-2 dropdown-content">
-          <div class="d-flex border">
+          <div class="input-group border">
             <input
-              class="form-control border-0 dropdown-input"
               type="text"
-              placeholder=" "
+              class="form-control dropdown-input border-0"
+              placeholder="Recherche"
             />
-            <i class="bi bi-x"></i>
-            <i class="bi bi-search"></i>
+            <div class="input-group-append d-flex align-items-center">
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-search"></i
+              ></span>
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-x croix"></i
+              ></span>
+            </div>
           </div>
-
-          <ul class="dropdown-list"></ul>
+          <ul class="dropdown-list list-unstyled"></ul>
         </div>
       </div>
 
@@ -95,16 +208,22 @@
           <img />
         </button>
         <div class="dropdown-menu p-2 dropdown-content">
-          <div class="d-flex border">
+          <div class="input-group border">
             <input
-              class="form-control border-0 dropdown-input"
               type="text"
-              placeholder=" "
+              class="form-control dropdown-input border-0"
+              placeholder="Recherche"
             />
-            <i class="bi bi-x"></i>
-            <i class="bi bi-search"></i>
+            <div class="input-group-append d-flex align-items-center">
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-search"></i
+              ></span>
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-x croix"></i
+              ></span>
+            </div>
           </div>
-          <ul class="dropdown-list"></ul>
+          <ul class="dropdown-list list-unstyled"></ul>
         </div>
       </div>
       <div class="dropdown p-1 container" id="dropdown-ustensils">
@@ -113,19 +232,25 @@
           <img />
         </button>
         <div class="dropdown-menu p-2 dropdown-content">
-          <div class="d-flex border">
+          <div class="input-group border">
             <input
-              class="form-control border-0 dropdown-input"
               type="text"
-              placeholder=" "
+              class="form-control dropdown-input border-0"
+              placeholder="Recherche"
             />
-            <i class="bi bi-x"></i>
-            <i class="bi bi-search"></i>
+            <div class="input-group-append d-flex align-items-center">
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-search"></i
+              ></span>
+              <span class="input-group-text bg-white border-0"
+                ><i class="bi bi-x croix"></i
+              ></span>
+            </div>
           </div>
-          <ul class="dropdown-list"></ul>
+          <ul class="dropdown-list list-unstyled"></ul>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="cards container"></section>
 

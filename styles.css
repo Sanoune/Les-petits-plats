@@ -1,16 +1,25 @@
 * {
-  font-family: "Anton", sans-serif;
+  font-family: "Manrope", sans-serif;
+  /* font-family: "Anton", sans-serif; */
+}
+
+:root {
+  --yellow-color: rgba(255, 209, 91, 1); /* Définir la variable personnalisée */
 }
 
 body {
   background-color: lightgray;
+  height: 100%;
+  width: 100%;
 }
 
 /* section header */
 .custom-header {
-  margin: 0px;
-  padding: 0px;
-  height: 660px;
+  background-image: url("./assets/img-background.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 600px;
+  margin-bottom: 30px;
 }
 
 .header-img {
@@ -19,12 +28,9 @@ body {
   object-fit: cover;
 }
 
-.container-header {
-  position: relative;
-}
-
-.section-text-home {
+.section-text-home h2 {
   color: rgba(255, 209, 91, 1);
+  font-family: "Anton", sans-serif; 
 }
 
 /* section cards */
@@ -59,9 +65,7 @@ body {
 .container-recette p {
   font-family: "Manrope", sans-serif;
 }
-/* .container-element-recette p {
-  font-family: "Manrope", sans-serif;
-} */
+
 
 .titre-color {
   color: rgba(122, 122, 122, 1);
@@ -94,7 +98,6 @@ body {
   color: rgba(122, 122, 122, 1);
 }
 
-
 /* filtre */
 .dropdown-menu {
   max-height: 200px; /* Limiter la hauteur du menu déroulant */
@@ -108,4 +111,60 @@ body {
 /* Optionnel : cacher également le fond de la barre de défilement */
 .dropdown-menu::-webkit-scrollbar-track {
   background-color: transparent; /* Couleur de fond */
+}
+
+.dropdown {
+  width: 19.5%; /* Ajustez la largeur selon vos préférences */
+}
+
+/* input  */
+.input-group-text {
+  border: none; /* Supprime la bordure */
+  background-color: transparent; /* Rend le fond transparent */
+  color: black; /* Couleur par défaut du texte */
+  padding: 5px;
+}
+
+/* Styles pour les icônes de recherche et de croix */
+.bi-search {
+  color: black; /* Couleur de l'icône de recherche */
+}
+
+.bi-x {
+  color: black; /* Couleur de l'icône de croix */
+}
+.dropdown-input:focus {
+  outline: none;
+}
+/* CSS pour le bouton et la liste déroulante */
+.dropdown-button {
+  margin-bottom: -5px;
+}
+
+.dropdown-menu {
+  margin-top: -1px; /* Compenser la bordure supérieure du bouton */
+  border-top-left-radius: 0; /* Supprimer le coin arrondi supérieur gauche */
+  border-top-right-radius: 0; /* Supprimer le coin arrondi supérieur droit */
+}
+
+.dropdown-content {
+  border: none; /* Supprimer la bordure supérieure de la liste déroulante */
+}
+
+.dropdown-input {
+  border-bottom-left-radius: 0; /* Supprimer le coin arrondi inférieur gauche */
+  border-bottom-right-radius: 0; /* Supprimer le coin arrondi inférieur droit */
+}
+
+.custom-list-item:hover {
+background-color: var(--yellow-color);
+cursor: pointer;
+}
+
+.custom-list-item {
+  font-family: "Manrope", sans-serif;
+}
+
+.mt-10{
+  margin-top:100px
 }
