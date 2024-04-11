@@ -92,37 +92,35 @@ function main() {
     showRecipes(newTabFilter);
     updateFilters(newTabFilter);
   };
-//version utilisant les boucles natives for... 
+//version utilisant filter... 
 //Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
 const searchBar = () => {
   const inputSearchBar = document.querySelector(".search-bar");
   inputSearchBar.addEventListener("input", (event) => {
     event.preventDefault();
-    let recettesCorrespondantes = [];
     const inputValue = inputSearchBar.value.toLowerCase();
-    
+
     if (inputValue.length < 3) {
       showRecipes(recipes);
       updateFilters(recipes);
       return;
     }
 
-    for (let i = 0; i < recipes.length; i++) {
-      const recipe = recipes[i];
-      if (
+    const recettesCorrespondantes = recipes.filter((recipe) => {
+      return (
         recipe.name.toLowerCase().includes(inputValue) ||
         recipe.description.toLowerCase().includes(inputValue) ||
         recipe.ingredients.some((ingredient) =>
           ingredient.ingredient.toLowerCase().includes(inputValue)
         )
-      ) {
-        recettesCorrespondantes.push(recipe);
-      }
-    }
+      );
+    });
+
     showRecipes(recettesCorrespondantes);
     updateFilters(recettesCorrespondantes);
   });
 };
+
 
 
   searchBar();
