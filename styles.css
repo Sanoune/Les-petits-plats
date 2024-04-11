@@ -1,32 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   font-family: "Manrope", sans-serif;
   /* font-family: "Anton", sans-serif; */
+}
+
+.font-anton {
+  font-family: "Anton", sans-serif;
 }
 
 :root {
   --yellow-color: rgba(255, 209, 91, 1); /* Définir la variable personnalisée */
 }
 
-body {
-  background-color: lightgray;
-  height: 100%;
-  width: 100%;
-}
-
 /* section header */
-.custom-header {
-  background-image: url("./assets/img-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 600px;
-  margin-bottom: 30px;
-}
-
-.header-img {
-  width: 100%;
-  position: absolute;
-  object-fit: cover;
-}
 
 .section-text-home h2 {
   color: rgba(255, 209, 91, 1);
@@ -135,25 +124,6 @@ body {
 .dropdown-input:focus {
   outline: none;
 }
-/* CSS pour le bouton et la liste déroulante */
-.dropdown-button {
-  margin-bottom: -5px;
-}
-
-.dropdown-menu {
-  margin-top: -1px; /* Compenser la bordure supérieure du bouton */
-  border-top-left-radius: 0; /* Supprimer le coin arrondi supérieur gauche */
-  border-top-right-radius: 0; /* Supprimer le coin arrondi supérieur droit */
-}
-
-.dropdown-content {
-  border: none; /* Supprimer la bordure supérieure de la liste déroulante */
-}
-
-.dropdown-input {
-  border-bottom-left-radius: 0; /* Supprimer le coin arrondi inférieur gauche */
-  border-bottom-right-radius: 0; /* Supprimer le coin arrondi inférieur droit */
-}
 
 .custom-list-item:hover {
   background-color: var(--yellow-color);
@@ -164,15 +134,12 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-.li-selected{
-  
+.li-selected {
 }
 
 .mt-10 {
   margin-top: 100px;
 }
 
-
-.newFilter{
-
+.newFilter {
 }
