@@ -83,102 +83,10 @@
     </header>
 
     <section
-      class="container d-flex dropDown"
+      class="container row d-flex align-items-center justify-content-evenly dropDown"
     >
-      <div class="">
-        <div class="dropdown" id="dropdown-ingredients">
-          <button class="btn bg-white dropdown-button w-100" type="button">
-            Ingredients
-            <img />
-          </button>
-          <div class="dropdown-menu p-2 dropdown-content">
-            <div class="input-group border">
-              <input
-                type="text"
-                class="form-control dropdown-input border-0"
-                placeholder="Recherche"
-              />
-              <div class="input-group-append d-flex align-items-center">
-                <span class="input-group-text bg-white border-0"
-                  ><i class="bi bi-search"></i
-                ></span>
-                <span class="input-group-text bg-white border-0"
-                  ><i class="bi bi-x croix"></i
-                ></span>
-              </div>
-            </div>
-            <ul class="dropdown-list list-unstyled"></ul>
-          </div>
-        </div>
-        <div>
-          <ul class="newFilter-ingredients list-unstyled"></ul>
-        </div>
-      </div>
-
-      <div class="">
-        <div class="dropdown" id="dropdown-appareils">
-          <button class="btn bg-white dropdown-button w-100" type="button">
-            Appareils
-            <img />
-          </button>
-          <div class="dropdown-menu p-2 dropdown-content">
-            <div class="input-group border">
-              <input
-                type="text"
-                class="form-control dropdown-input border-0"
-                placeholder="Recherche"
-              />
-              <div class="input-group-append d-flex align-items-center">
-                <span class="input-group-text bg-white border-0"
-                  ><i class="bi bi-search"></i
-                ></span>
-                <span class="input-group-text bg-white border-0"
-                  ><i class="bi bi-x croix"></i
-                ></span>
-              </div>
-            </div>
-            <ul class="dropdown-list list-unstyled"></ul>
-          </div>
-        </div>
-        <div>
-          <ul class="newFilter-ingredients list-unstyled"></ul>
-        </div>
-      </div>
-
-      <div class="">
-      <div class="dropdown" id="dropdown-ustensils">
+      <div class="dropdown py-1 px-0 col-4" id="dropdown-ingredients">
         <button class="btn bg-white dropdown-button w-100" type="button">
-          Ustensils
-          <img />
-        </button>
-        <div class="dropdown-menu p-2 dropdown-content">
-          <div class="input-group border">
-            <input
-              type="text"
-              class="form-control dropdown-input border-0"
-              placeholder="Recherche"
-            />
-            <div class="input-group-append d-flex align-items-center">
-              <span class="input-group-text bg-white border-0"
-                ><i class="bi bi-search"></i
-              ></span>
-              <span class="input-group-text bg-white border-0"
-                ><i class="bi bi-x croix"></i
-              ></span>
-            </div>
-          </div>
-          <ul class="dropdown-list list-unstyled"></ul>
-        </div>
-      </div>
-      <div>
-        <ul class="newFilter-ingredients list-unstyled"></ul>
-      </div>
-    </div>
-    </section>
-
-    <!-- <section class="container row d-flex dropDown">
-      <div class="dropdown p-1 col-12" id="dropdown-ingredients">
-        <button class="btn bg-white dropdown-button" type="button">
           Ingredients
           <img />
         </button>
@@ -202,8 +110,8 @@
         </div>
       </div>
 
-      <div class="dropdown p-1 container" id="dropdown-appareils">
-        <button class="btn bg-white dropdown-button" type="button">
+      <div class="dropdown py-1 px-0 col-4" id="dropdown-appareils">
+        <button class="btn bg-white dropdown-button w-100" type="button">
           Appareils
           <img />
         </button>
@@ -226,8 +134,9 @@
           <ul class="dropdown-list list-unstyled"></ul>
         </div>
       </div>
-      <div class="dropdown p-1 container" id="dropdown-ustensils">
-        <button class="btn bg-white dropdown-button" type="button">
+
+      <div class="dropdown py-1 px-0 col-4" id="dropdown-ustensils">
+        <button class="btn bg-white dropdown-button w-100" type="button">
           Ustensils
           <img />
         </button>
@@ -250,8 +159,11 @@
           <ul class="dropdown-list list-unstyled"></ul>
         </div>
       </div>
-    </section> -->
 
+      <div>
+        <ul class="filters-select list-unstyled"></ul>
+      </div>
+    </section>
     <section class="cards container"></section>
 
     <script

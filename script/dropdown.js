@@ -19,10 +19,7 @@ export class Dropdown {
     this.filters = [];
   }
 
-
-
   open() {
-   
     if (this.opened) {
       this.contentElement.style.display = "none";
       this.opened = false;
@@ -38,23 +35,35 @@ export class Dropdown {
     if (this.filter != "") {
       list = this.list.filter((item) => item.includes(this.filter));
     }
+
     list.forEach((ingredient) => {
       const listItem = document.createElement("li");
+      const span = document.createElement("span");
+
       listItem.classList.add("custom-list-item");
+
+      listItem.appendChild(span);
+
+      const isActive = this.filters.includes(ingredient);
+
+      if (isActive) {
+        const icon = document.createElement("i");
+        icon.classList.add("bi", "bi-x-circle-fill");
+        listItem.appendChild(icon);
+      }
+
       listItem.addEventListener("click", () => {
-        this.selectFilter(listItem.textContent);
-
-        const newfiltre = document.createElement("li");
-        newfiltre.textContent = listItem.textContent;
-        
-        const ulElement = document.querySelector('.newFilter-ingredients');
-
-        
-        ulElement.appendChild(newfiltre)
-
-
+        if (isActive) {
+          this.unSelectFilter(ingredient);
+        } else {
+          this.selectFilter(ingredient);
+          const newfiltre = document.createElement("li");
+          newfiltre.textContent = ingredient;
+          const filtersSelect = document.querySelector(".filters-select");
+          filtersSelect.appendChild(newfiltre);
+        }
       });
-      listItem.textContent = ingredient;
+      span.textContent = ingredient;
       this.listElement.appendChild(listItem);
     });
   }
@@ -66,6 +75,21 @@ export class Dropdown {
 
   selectFilter(element) {
     this.filters.push(element);
+    this.onChange(this.filters);
+  }
+
+  unSelectFilter(element) {
+    this.filters = this.filters.filter((filter) => filter !== element);
+
+    this.updateDOM();
+
+    const filtersSelect = document.querySelector(".filters-select");
+    const selectedFilterElements = filtersSelect.querySelectorAll("li");
+    selectedFilterElements.forEach((selectedFilterElement) => {
+      if (selectedFilterElement.textContent === element) {
+        selectedFilterElement.remove();
+      }
+    });
     this.onChange(this.filters);
   }
 }

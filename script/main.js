@@ -54,128 +54,79 @@ const updateFilters = (filteredRecipes) => {
   dropdownAppareills.updateDOM();
 };
 
+
 function main() {
   showRecipes(recipes);
   updateFilters(recipes);
 
   dropdownIngredients.onChange = (filters) => {
-    const newTabFilter = [];
-    for (let i = 0; i < recipes.length; i++) {
-      let resultatAllFilters = true;
-      for (let x = 0; x < filters.length; x++) {
-        let resultatfilters = false;
-        for (let y = 0; y < recipes[i].ingredients.length; y++) {
-          if (
-            filters[x] ===
-            recipes[i].ingredients[y].ingredient.trim().toLowerCase()
-          ) {
-            resultatfilters = true;
-            console.log(resultatfilters);
-          }
-        }
-        if (!resultatfilters) {
-          resultatAllFilters = false;
-        }
-      }
-      if (resultatAllFilters) {
-        newTabFilter.push(recipes[i]);
-      }
-    }
+    const newTabFilter = recipes.filter((recipe) => {
+      return filters.every((filter) => {
+        return recipe.ingredients.some((ingredient) => {
+          return filter === ingredient.ingredient.trim().toLowerCase();
+        });
+      });
+    });
     showRecipes(newTabFilter);
     updateFilters(newTabFilter);
   };
 
   dropdownAppareills.onChange = (filters) => {
-    const newTabFilter = [];
-    for (let i = 0; i < recipes.length; i++) {
-      let resultatAllFilters = true;
-      for (let x = 0; x < filters.length; x++) {
-        if (filters[x] !== recipes[i].appliance.trim().toLocaleLowerCase()) {
-          resultatAllFilters = false;
-        }
-      }
-      if (resultatAllFilters) {
-        newTabFilter.push(recipes[i]);
-      }
-    }
-    showRecipes(newTabFilter);
-    updateFilters(newTabFilter);
-  };
-
-  
-  dropdownUstensils.onChange = (filters) => {
-    const newTabFilter = [];
-    for (let i = 0 ; i < recipes.length ; i++) {
-      let resultatAllFilters = true;
-        for (let x = 0 ; x < filters.length; x++){
-          let resultatfilters = false;
-            for (let y = 0 ; y < recipes[i].ustensils.length; y ++){
-              if (
-                filters[x] ===
-                recipes[i].ustensils[y].trim().toLowerCase()
-              ) {
-                resultatfilters = true;
-               
-              }
-            }
-            if (!resultatfilters) {
-              resultatAllFilters = false;
-            }
-
-        }
-        if (resultatAllFilters) {
-          newTabFilter.push(recipes[i]);
-        }
-
-    }
-    showRecipes(newTabFilter);
-    updateFilters(newTabFilter);
-
-  }
-
-  const searchBar = () => {
-    const inputSearchBar = document.querySelector(".search-bar");
-    inputSearchBar.addEventListener("input", (event) => {
-      event.preventDefault;
-      let recettesCorrespondantes = [];
-      if (inputSearchBar.value.length < 3) {
-        showRecipes(recipes);
-      }
-      if (inputSearchBar.value.length >= 3) {
-        const searchValue = inputSearchBar.value.toLowerCase();
-        recipes.forEach((recipe) => {
-          let recetteValide = false;
-          if (recipe.name.toLocaleLowerCase().includes(searchValue)) {
-            recetteValide = true;
-          }
-          if (recipe.description.toLocaleLowerCase().includes(searchValue)) {
-            recetteValide = true;
-          }
-
-          recipe.ingredients.forEach((ingredient) => {
-            if (
-              ingredient.ingredient.toLocaleLowerCase().includes(searchValue)
-            ) {
-              recetteValide = true;
-            }
-          });
-          if (recetteValide) {
-            recettesCorrespondantes.push(recipe);
-          }
-        });
-
-        showRecipes(recettesCorrespondantes);
-        updateFilters(recettesCorrespondantes);
-        console.log(recettesCorrespondantes);
-      }
+    const newTabFilter = recipes.filter((recipe) => {
+      return filters.every((filter) => {
+        return filter === recipe.appliance.trim().toLowerCase();
+      });
     });
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
   };
+
+  dropdownUstensils.onChange = (filters) => {
+    const newTabFilter = recipes.filter((recipe) => {
+      return filters.every((filter) => {
+        return recipe.ustensils.some((ustensil) => {
+          return filter === ustensil.trim().toLowerCase();
+        });
+      });
+    });
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
+  };
+//version utilisant les boucles natives for... 
+//Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
+const searchBar = () => {
+  const inputSearchBar = document.querySelector(".search-bar");
+  inputSearchBar.addEventListener("input", (event) => {
+    event.preventDefault();
+    let recettesCorrespondantes = [];
+    const inputValue = inputSearchBar.value.toLowerCase();
+    
+    if (inputValue.length < 3) {
+      showRecipes(recipes);
+      updateFilters(recipes);
+      return;
+    }
+
+    for (let i = 0; i < recipes.length; i++) {
+      const recipe = recipes[i];
+      if (
+        recipe.name.toLowerCase().includes(inputValue) ||
+        recipe.description.toLowerCase().includes(inputValue) ||
+        recipe.ingredients.some((ingredient) =>
+          ingredient.ingredient.toLowerCase().includes(inputValue)
+        )
+      ) {
+        recettesCorrespondantes.push(recipe);
+      }
+    }
+    showRecipes(recettesCorrespondantes);
+    updateFilters(recettesCorrespondantes);
+  });
+};
+
 
   searchBar();
 }
 
 main();
 
-// supprimer les tag
-// ecouter quand je click sur un tag recuperer la valeur des tags,
-// quand je click sur le button parent du tag // remoov le tag supp du tableau supp physiquement

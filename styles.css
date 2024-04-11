@@ -17,7 +17,7 @@ body {
 .custom-header {
   background-image: url("./assets/img-background.png");
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
   height: 600px;
   margin-bottom: 30px;
 }
@@ -30,7 +30,7 @@ body {
 
 .section-text-home h2 {
   color: rgba(255, 209, 91, 1);
-  font-family: "Anton", sans-serif; 
+  font-family: "Anton", sans-serif;
 }
 
 /* section cards */
@@ -65,7 +65,6 @@ body {
 .container-recette p {
   font-family: "Manrope", sans-serif;
 }
-
 
 .titre-color {
   color: rgba(122, 122, 122, 1);
@@ -157,14 +156,23 @@ body {
 }
 
 .custom-list-item:hover {
-background-color: var(--yellow-color);
-cursor: pointer;
+  background-color: var(--yellow-color);
+  cursor: pointer;
 }
 
 .custom-list-item {
   font-family: "Manrope", sans-serif;
 }
 
-.mt-10{
-  margin-top:100px
+.li-selected{
+  
+}
+
+.mt-10 {
+  margin-top: 100px;
+}
+
+
+.newFilter{
+
 }
