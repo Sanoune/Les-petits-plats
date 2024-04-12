@@ -8,8 +8,11 @@ export class Dropdown {
     this.opened = false;
     this.buttonElement = document.querySelector(id + " .dropdown-button");
     this.contentElement = document.querySelector(id + " .dropdown-content");
+    this.arrowDownIcon = document.querySelector(`${id} .arrow-dropDown`);
+    this.arrowUpIcon = document.querySelector(`${id} .arrow-dropUp`);
     this.buttonElement.addEventListener("click", () => this.open());
     this.listElement = document.querySelector(id + " .dropdown-list");
+    this.close = document.querySelector( `${id} .close`);
     this.inputElement = document.querySelector(id + " .dropdown-input");
     this.inputElement.addEventListener("input", (event) => {
       event.preventDefault;
@@ -23,11 +26,25 @@ export class Dropdown {
     if (this.opened) {
       this.contentElement.style.display = "none";
       this.opened = false;
+      this.arrowDropDown();
     } else {
       this.contentElement.style.display = "block";
       this.opened = true;
+      this.arrowDropDown();
     }
   }
+
+  arrowDropDown() {
+    if (this.arrowDownIcon.classList.contains("hidden")) {
+      this.arrowDownIcon.classList.remove("hidden");
+      this.arrowUpIcon.classList.add("hidden");
+    } else {
+      this.arrowDownIcon.classList.add("hidden");
+      this.arrowUpIcon.classList.remove("hidden");
+    }
+  }
+  
+
 
   updateDOM() {
     this.listElement.innerHTML = "";
@@ -40,17 +57,22 @@ export class Dropdown {
       const listItem = document.createElement("li");
       const span = document.createElement("span");
 
-      listItem.classList.add("custom-list-item");
+      listItem.classList.add("custom-list-item" , "flex" , "justify-between");
 
       listItem.appendChild(span);
 
       const isActive = this.filters.includes(ingredient);
 
       if (isActive) {
-        const icon = document.createElement("i");
-        icon.classList.add("bi", "bi-x-circle-fill");
-        listItem.appendChild(icon);
+        const img = document.createElement("img");
+        img.src = "./assets/icones/x-icon.svg"
+        img.classList.add("w-6", "h-6");
+        
+        
+      
+        listItem.appendChild(img);
       }
+      
 
       listItem.addEventListener("click", () => {
         if (isActive) {
@@ -70,8 +92,18 @@ export class Dropdown {
 
   filterChange() {
     this.filter = this.inputElement.value.trim().toLowerCase();
+    this.close.classList.remove("hidden");
+    if (this.inputElement.value === ""){
+      this.close.classList.add("hidden");
+    }
+    this.close.addEventListener("click", () => {
+      this.inputElement.value = ""; 
+      this.close.classList.add("hidden"); 
+    });
+    
     this.updateDOM();
   }
+
 
   selectFilter(element) {
     this.filters.push(element);

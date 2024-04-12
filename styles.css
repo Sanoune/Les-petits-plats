@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 * {
   font-family: "Manrope", sans-serif;
   /* font-family: "Anton", sans-serif; */
@@ -88,21 +91,17 @@
 
 /* filtre */
 .dropdown-menu {
-  max-height: 200px; /* Limiter la hauteur du menu déroulant */
-  overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+  max-height: 300px; 
+  overflow-y: auto; 
 }
 
 .dropdown-menu::-webkit-scrollbar {
-  width: 0; /* Largeur de la barre de défilement */
+  width: 0; 
 }
 
-/* Optionnel : cacher également le fond de la barre de défilement */
+
 .dropdown-menu::-webkit-scrollbar-track {
-  background-color: transparent; /* Couleur de fond */
-}
-
-.dropdown {
-  width: 19.5%; /* Ajustez la largeur selon vos préférences */
+  background-color: transparent; 
 }
 
 /* input  */
@@ -134,12 +133,7 @@
   font-family: "Manrope", sans-serif;
 }
 
-.li-selected {
-}
-
 .mt-10 {
   margin-top: 100px;
 }
 
-.newFilter {
-}

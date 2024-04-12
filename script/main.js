@@ -94,6 +94,9 @@ function main() {
   };
 //version utilisant filter... 
 //Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
+
+
+
 const searchBar = () => {
   const inputSearchBar = document.querySelector(".search-bar");
   inputSearchBar.addEventListener("input", (event) => {

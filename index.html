@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="./dist/styles.css" />
     <title>Les petits plats</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
@@ -45,11 +48,10 @@
             DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
           </h2>
         </div>
-
         <div class="pt-2 relative ml-14 mr-14">
           <input
-            class="search-bar bg-white rounded-lg w-full h-16"
-            type="search"
+            class="search-bar bg-white rounded-lg w-full h-16 appearance-none"
+            type="text"
             name="search"
             placeholder="Search"
           />
@@ -73,83 +75,253 @@
       </div>
     </header>
 
-    <section class="flex align-items-center justify-between m-12">
-      
-      <div class="dropdown flex flex-col" id="dropdown-ingredients">
-        <button class="bg-white dropdown-button" type="button">
+    <section class="flex justify-between m-12">
+      <div
+        class="w-[195px] dropdown flex flex-col relative"
+        id="dropdown-ingredients"
+      >
+        <button
+          class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+          type="button"
+        >
           Ingredients
-          <img />
-        </button>
-        <div class="absolute bg-white mt-4 p-4 hidden dropdown-menu dropdown-content">
-          <div class="input-group border">
-            <input
-              type="text"
-              class="flex form-control dropdown-input border-0"
-              placeholder="Recherche"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 arrow-dropDown"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
-            <div class="input-group-append r">
-              <span class="input-group-text"><i class="bi bi-search"></i></span>
-              <span class="input-group-text"
-                ><i class="bi bi-x croix"></i
-              ></span>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hidden arrow-dropUp"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 15.75 7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
+        <div
+          class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content"
+        >
+          <div class="p-4">
+            <div class="flex input-group border">
+              <input
+                type="text"
+                class="flex dropdown-input w-full"
+                placeholder="Recherche"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden close text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
             </div>
           </div>
-          <ul class="dropdown-list list-unstyled"></ul>
+          <ul class="dropdown-list list-unstyled p-4"></ul>
         </div>
       </div>
 
-      <div class="dropdown flex flex-col" id="dropdown-appareils">
-        <button class="dropdown-button bg-white" type="button">
+      <div
+        class="w-[195px] dropdown flex flex-col relative"
+        id="dropdown-appareils"
+      >
+        <button
+          class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+          type="button"
+        >
           Appareils
-          <img />
-        </button>
-        <div class="hidden dropdown-menu p-2 dropdown-content">
-          <div class="input-group border">
-            <input
-              type="text"
-              class="form-control dropdown-input border-0"
-              placeholder="Recherche"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 arrow-dropDown"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
-            <div class="input-group-append d-flex align-items-center">
-              <span class="input-group-text bg-white border-0"
-                ><i class="bi bi-search"></i
-              ></span>
-              <span class="input-group-text bg-white border-0"
-                ><i class="bi bi-x croix"></i
-              ></span>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hidden arrow-dropUp"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 15.75 7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
+        <div
+          class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content"
+        >
+          <div class="p-4">
+            <div class="flex input-group border">
+              <input
+                type="text"
+                class="flex dropdown-input w-full"
+                placeholder="Recherche"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden close text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
             </div>
           </div>
-          <ul class="dropdown-list list-unstyled"></ul>
+          <ul class="dropdown-list list-unstyled p-4"></ul>
         </div>
       </div>
 
-      <div class="dropdown flex flex-col" id="dropdown-ustensils">
-        <button class="bg-white dropdown-button" type="button">
+      <div
+        class="w-[195px] dropdown flex flex-col relative"
+        id="dropdown-ustensils"
+      >
+        <button
+          class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+          type="button"
+        >
           Ustensils
-          <img />
-        </button>
-        <div class="hidden dropdown-menu p-2 dropdown-content">
-          <div class=" flex input-group border">
-            <input
-              type="text"
-              class="form-control dropdown-input border-0"
-              placeholder="Recherche"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 arrow-dropDown"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-            <div class="input-group-append d-flex align-items-center">
-             
-             
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 hidden arrow-dropUp"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m4.5 15.75 7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </button>
+        <div
+          class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content"
+        >
+          <div class="p-4">
+            <div class="flex input-group border">
+              <input
+                type="text"
+                class="flex dropdown-input w-full"
+                placeholder="Recherche"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden close text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
             </div>
           </div>
-          <ul class="dropdown-list list-unstyled"></ul>
+          <ul class="dropdown-list list-unstyled p-4"></ul>
         </div>
       </div>
-
-      <div>
-        <ul class="filters-select list-unstyled"></ul>
-      </div>
+      <div class="filters-select"></div>
     </section>
     <section class="cards container"></section>
 
