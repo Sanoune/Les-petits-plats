@@ -54,80 +54,99 @@ const updateFilters = (filteredRecipes) => {
   dropdownAppareills.updateDOM();
 };
 
-
 function main() {
   showRecipes(recipes);
   updateFilters(recipes);
 
-  dropdownIngredients.onChange = (filters) => {
-    const newTabFilter = recipes.filter((recipe) => {
-      return filters.every((filter) => {
+  const filterFunction = () => {
+    const ingredientFilters = dropdownIngredients.filters;
+    const ingredientFiltered = recipes.filter((recipe) => {
+      return ingredientFilters.every((filter) => {
         return recipe.ingredients.some((ingredient) => {
           return filter === ingredient.ingredient.trim().toLowerCase();
         });
       });
     });
-    showRecipes(newTabFilter);
-    updateFilters(newTabFilter);
-  };
 
-  dropdownAppareills.onChange = (filters) => {
-    const newTabFilter = recipes.filter((recipe) => {
-      return filters.every((filter) => {
+    const appareilFilters = dropdownAppareills.filters;
+
+    const appareilFiltered = ingredientFiltered.filter((recipe) => {
+      return appareilFilters.every((filter) => {
         return filter === recipe.appliance.trim().toLowerCase();
       });
     });
-    showRecipes(newTabFilter);
-    updateFilters(newTabFilter);
-  };
 
-  dropdownUstensils.onChange = (filters) => {
-    const newTabFilter = recipes.filter((recipe) => {
-      return filters.every((filter) => {
+    const ustensilFilters = dropdownUstensils.filters;
+
+    const ustensilFiltered = appareilFiltered.filter((recipe) => {
+      return ustensilFilters.every((filter) => {
         return recipe.ustensils.some((ustensil) => {
           return filter === ustensil.trim().toLowerCase();
         });
       });
     });
+
+    return ustensilFiltered;
+  };
+  dropdownIngredients.onChange = () => {
+    const newTabFilter = filterFunction();
     showRecipes(newTabFilter);
     updateFilters(newTabFilter);
   };
-//version utilisant filter... 
-//Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
 
+  dropdownAppareills.onChange = () => {
+    const newTabFilter = filterFunction();
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
+  };
 
+  dropdownUstensils.onChange = () => {
+    const newTabFilter = filterFunction();
+    showRecipes(newTabFilter);
+    updateFilters(newTabFilter);
+  };
+  //version utilisant filter...
+  //Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
 
-const searchBar = () => {
-  const inputSearchBar = document.querySelector(".search-bar");
-  inputSearchBar.addEventListener("input", (event) => {
-    event.preventDefault();
-    const inputValue = inputSearchBar.value.toLowerCase();
+  const searchBar = () => {
+    const inputSearchBar = document.querySelector(".search-bar");
+    const iconeClose = document.querySelector(".icone-close");
+    inputSearchBar.addEventListener("input", (event) => {
+      event.preventDefault();
 
-    if (inputValue.length < 3) {
-      showRecipes(recipes);
-      updateFilters(recipes);
-      return;
-    }
+      iconeClose.classList.remove("hidden");
+      if (inputSearchBar.value === "") {
+        iconeClose.classList.add("hidden");
+      }
+      iconeClose.addEventListener("click", () => {
+        inputSearchBar.value = "";
+        iconeClose.classList.add("hidden");
+      });
 
-    const recettesCorrespondantes = recipes.filter((recipe) => {
-      return (
-        recipe.name.toLowerCase().includes(inputValue) ||
-        recipe.description.toLowerCase().includes(inputValue) ||
-        recipe.ingredients.some((ingredient) =>
-          ingredient.ingredient.toLowerCase().includes(inputValue)
-        )
-      );
+      const inputValue = inputSearchBar.value.toLowerCase();
+
+      if (inputValue.length < 3) {
+        showRecipes(recipes);
+        updateFilters(recipes);
+        return;
+      }
+
+      const recettesCorrespondantes = recipes.filter((recipe) => {
+        return (
+          recipe.name.toLowerCase().includes(inputValue) ||
+          recipe.description.toLowerCase().includes(inputValue) ||
+          recipe.ingredients.some((ingredient) =>
+            ingredient.ingredient.toLowerCase().includes(inputValue)
+          )
+        );
+      });
+
+      showRecipes(recettesCorrespondantes);
+      updateFilters(recettesCorrespondantes);
     });
-
-    showRecipes(recettesCorrespondantes);
-    updateFilters(recettesCorrespondantes);
-  });
-};
-
-
+  };
 
   searchBar();
 }
 
 main();
-

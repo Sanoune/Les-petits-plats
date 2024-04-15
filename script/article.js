@@ -11,6 +11,7 @@ export const createArticle = (data) => {
 
   const title = document.createElement("p");
   title.textContent = name;
+  title.classList.add("title-recipe", "font-anton");
 
   const containerDescriptionRecette = document.createElement("div");
   containerDescriptionRecette.classList = "container-element-recette";
