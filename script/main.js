@@ -5,9 +5,11 @@ import { Dropdown } from "./dropdown.js";
 const dropdownIngredients = new Dropdown("#dropdown-ingredients");
 const dropdownAppareills = new Dropdown("#dropdown-appareils");
 const dropdownUstensils = new Dropdown("#dropdown-ustensils");
+const updateNbRecettes = document.querySelector(".nb-recettes");
 
 let allIngredients;
 export const showRecipes = (filteredRecipes) => {
+  updateNbRecettes.textContent = filteredRecipes.length;
   const containerArticles = document.querySelector(".cards");
   containerArticles.innerHTML = "";
   filteredRecipes.forEach((recipe) => {
@@ -54,7 +56,32 @@ const updateFilters = (filteredRecipes) => {
   dropdownAppareills.updateDOM();
 };
 
+function closeAllDropDown(dropDown) {
+if (dropDown !== dropdownAppareills){
+  dropdownAppareills.close();
+}
+if (dropDown !== dropdownIngredients){
+  dropdownIngredients.close();
+}
+if (dropDown !== dropdownUstensils){
+  dropdownUstensils.close();
+}
+}
+
 function main() {
+  dropdownIngredients.buttonElement.addEventListener("click", () => {
+    closeAllDropDown(dropdownIngredients);
+    dropdownIngredients.open();
+  });
+  dropdownAppareills.buttonElement.addEventListener("click", () => {
+    closeAllDropDown(dropdownAppareills);
+    dropdownAppareills.open();
+  });
+  dropdownUstensils.buttonElement.addEventListener("click", () => {
+    closeAllDropDown(dropdownUstensils);
+    dropdownUstensils.open();
+  });
+
   showRecipes(recipes);
   updateFilters(recipes);
 
@@ -110,7 +137,9 @@ function main() {
 
   const searchBar = () => {
     const inputSearchBar = document.querySelector(".search-bar");
+
     const iconeClose = document.querySelector(".icone-close");
+
     inputSearchBar.addEventListener("input", (event) => {
       event.preventDefault();
 
@@ -128,6 +157,7 @@ function main() {
       if (inputValue.length < 3) {
         showRecipes(recipes);
         updateFilters(recipes);
+
         return;
       }
 

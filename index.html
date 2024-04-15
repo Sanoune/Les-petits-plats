@@ -33,15 +33,15 @@
   </head>
   <body class="bg-neutral-200">
     <header
-      class="bg-cover w-full h-[667px] bg-right"
+      class="bg-cover w-full bg-right header-style"
       style="background-image: url('./assets/img-background.png')"
     >
       <div class="flex flex-col">
-        <div class="flex mt-8 ml-5">
+        <div class="flex sm:mt-8  sm:ml-5 justify-center sm:justify-start sm:mt-0 mt-12">
           <img class="" src="./assets/logo/Les petits plats.png" alt="logo" />
           <img class="" src="./assets/logo/point.png" alt="point" />
         </div>
-        <div class="flex justify-center mt-[150px] mb-6">
+        <div class="flex justify-center mt-6 mb-6">
           <h2
             class="text-yellow-400 font-anton sm:text-[44px] text-[33px] text-center"
           >
@@ -49,7 +49,7 @@
             DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
           </h2>
         </div>
-        <div class="pt-2 relative ml-14 mr-14">
+        <div class="pt-2 relative m-auto max-w">
           <input
             class="search-bar bg-white rounded-lg w-full h-16 appearance-none"
             type="text"
@@ -89,10 +89,10 @@
         </div>
       </div>
     </header>
-    <section class="dropdown flex flex-col m-auto sm:gap-0 p-14">
-      <div class="flex sm:justify-between">
+    <section class="dropdown flex flex-col m-auto sm:gap-0 sm:p-14 p-8">
+      <div class="flex md:flex-row sm:gap-O gap-12 flex-wrap flex-col sm:justify-between justify-center">
         <div
-          class="w-[195px] dropdown flex flex-col relative"
+          class=" dropdown flex flex-col relative flex-1 sm:max-w-48"
           id="dropdown-ingredients"
         >
           <button
@@ -130,7 +130,7 @@
             </svg>
           </button>
           <div
-            class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
+            class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
           >
             <div class="p-4 pb-0">
               <div class="flex input-group border">
@@ -174,7 +174,7 @@
         </div>
 
         <div
-          class="w-[195px] dropdown flex flex-col relative"
+          class="dropdown flex flex-col relative flex-1 sm:max-w-48"
           id="dropdown-appareils"
         >
           <button
@@ -212,7 +212,7 @@
             </svg>
           </button>
           <div
-            class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
+            class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
           >
             <div class="p-4 pb-0">
               <div class="flex input-group border">
@@ -256,7 +256,7 @@
         </div>
 
         <div
-          class="w-[195px] dropdown flex flex-col relative"
+          class="dropdown flex flex-col relative flex-1 sm:max-w-48"
           id="dropdown-ustensils"
         >
           <button
@@ -294,7 +294,7 @@
             </svg>
           </button>
           <div
-            class="top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
+            class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu dropdown-content flex-col overflow-hidden"
           >
             <div class="p-4 pb-0">
               <div class="flex input-group border">
@@ -336,8 +336,12 @@
             <ul class="dropdown-list list-unstyled p-4 overflow-auto"></ul>
           </div>
         </div>
+        <div class="flex relative flex-1 sm:max-w-48 gap-2 items-center">
+          <span class="nb-recettes font-anton text-xl"> </span>
+          <span class="font-anton text-xl"> recettes</span>
+        </div>
       </div>
-      <div class="filters-select flex gap-10 mt-8"></div>
+      <div class="filters-select flex flex-wrap sm:gap-10 gap-2 mt-8"></div>
     </section>
     <section
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 m-auto sm:p-14 p-8 cards"

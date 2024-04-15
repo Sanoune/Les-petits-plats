@@ -2,10 +2,24 @@ export const createArticle = (data) => {
   const containerArticles = document.querySelector(".cards");
   const { id, name, ingredients, description, image, time } = data;
   const article = document.createElement("article");
+  article.classList.add("relative");
   const imagePlat = document.createElement("img");
   imagePlat.src = `./assets/medias/${image}`;
   imagePlat.classList = "article-img";
   const containerTime = document.createElement("div");
+
+  containerTime.classList.add(
+    "absolute",
+    "text-xs",
+    "bg-yellow-400",
+    "pr-3.5",
+    "pl-3.5",
+    "pt-1",
+    "pb-1",
+    "rounded-2xl",
+    "top-4",
+    "right-4"
+  );
   const timeTexte = document.createElement("p");
   timeTexte.textContent = `${time}min`;
 
@@ -56,7 +70,6 @@ export const createArticle = (data) => {
   const ingredientsTexte = document.createElement("p");
   ingredientsTexte.textContent = ingredients.ingredient;
 
-  imagePlat.appendChild(containerTime);
   containerTime.appendChild(timeTexte);
 
   containerRecette.appendChild(recette);
@@ -65,6 +78,7 @@ export const createArticle = (data) => {
   containerIngredient.appendChild(ingredient);
   containerIngredient.appendChild(ingredientList);
 
+  article.appendChild(containerTime);
   article.appendChild(imagePlat);
   article.appendChild(containerDescriptionRecette);
   containerDescriptionRecette.appendChild(title);

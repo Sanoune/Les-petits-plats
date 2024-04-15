@@ -8,9 +8,9 @@ export class Dropdown {
     this.contentElement = document.querySelector(id + " .dropdown-content");
     this.arrowDownIcon = document.querySelector(`${id} .arrow-dropDown`);
     this.arrowUpIcon = document.querySelector(`${id} .arrow-dropUp`);
-    this.buttonElement.addEventListener("click", () => this.open());
+
     this.listElement = document.querySelector(id + " .dropdown-list");
-    this.close = document.querySelector(`${id} .close`);
+    this.closeElement = document.querySelector(`${id} .close`);
     this.inputElement = document.querySelector(id + " .dropdown-input");
     this.inputElement.addEventListener("input", (event) => {
       event.preventDefault;
@@ -30,6 +30,12 @@ export class Dropdown {
       this.opened = true;
       this.arrowDropDown();
     }
+  }
+
+  close() {
+    this.contentElement.style.display = "none";
+    this.opened = false;
+    this.arrowDropDown();
   }
 
   arrowDropDown() {
@@ -81,13 +87,13 @@ export class Dropdown {
 
   filterChange() {
     this.filter = this.inputElement.value.trim().toLowerCase();
-    this.close.classList.remove("hidden");
+    this.closeElement.classList.remove("hidden");
     if (this.inputElement.value === "") {
-      this.close.classList.add("hidden");
+      this.closeElement.classList.add("hidden");
     }
-    this.close.addEventListener("click", () => {
+    this.closeElement.addEventListener("click", () => {
       this.inputElement.value = "";
-      this.close.classList.add("hidden");
+      this.closeElement.classList.add("hidden");
     });
 
     this.updateDOM();

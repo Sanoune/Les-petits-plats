@@ -16,7 +16,10 @@
 }
 
 /* section header */
-
+.header-style {
+  height: 500px;
+  background-position: center;
+}
 .section-text-home h2 {
   color: rgba(255, 209, 91, 1);
   font-family: "Anton", sans-serif;
@@ -30,6 +33,9 @@
   border-radius: 21px 21px 0px 0px;
 }
 
+.max-w{
+  width: 90%;
+}
 /* .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -136,3 +142,4 @@
 .mt-10 {
   margin-top: 100px;
 }
+
