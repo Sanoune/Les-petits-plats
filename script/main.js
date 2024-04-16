@@ -6,11 +6,13 @@ const dropdownIngredients = new Dropdown("#dropdown-ingredients");
 const dropdownAppareills = new Dropdown("#dropdown-appareils");
 const dropdownUstensils = new Dropdown("#dropdown-ustensils");
 const updateNbRecettes = document.querySelector(".nb-recettes");
+const containerArticles = document.querySelector(".cards");
+const errorMessage = document.querySelector(".error-message");
+
 
 let allIngredients;
 export const showRecipes = (filteredRecipes) => {
   updateNbRecettes.textContent = filteredRecipes.length;
-  const containerArticles = document.querySelector(".cards");
   containerArticles.innerHTML = "";
   filteredRecipes.forEach((recipe) => {
     createArticle(recipe);
@@ -57,15 +59,15 @@ const updateFilters = (filteredRecipes) => {
 };
 
 function closeAllDropDown(dropDown) {
-if (dropDown !== dropdownAppareills){
-  dropdownAppareills.close();
-}
-if (dropDown !== dropdownIngredients){
-  dropdownIngredients.close();
-}
-if (dropDown !== dropdownUstensils){
-  dropdownUstensils.close();
-}
+  if (dropDown !== dropdownAppareills) {
+    dropdownAppareills.close();
+  }
+  if (dropDown !== dropdownIngredients) {
+    dropdownIngredients.close();
+  }
+  if (dropDown !== dropdownUstensils) {
+    dropdownUstensils.close();
+  }
 }
 
 function main() {
@@ -162,14 +164,23 @@ function main() {
       }
 
       const recettesCorrespondantes = recipes.filter((recipe) => {
+        
         return (
           recipe.name.toLowerCase().includes(inputValue) ||
           recipe.description.toLowerCase().includes(inputValue) ||
           recipe.ingredients.some((ingredient) =>
-            ingredient.ingredient.toLowerCase().includes(inputValue)
+          ingredient.ingredient.toLowerCase().includes(inputValue)
+
+            
           )
         );
       });
+
+      if (recettesCorrespondantes.length === 0) {
+        containerArticles.innerHTML = `<p>Aucune recette ne contient '${inputValue}'.
+        Essayer avec des termes similaires comme "tarte aux pommes", "poisson", etc.</p>`;
+        return;
+      }
 
       showRecipes(recettesCorrespondantes);
       updateFilters(recettesCorrespondantes);
