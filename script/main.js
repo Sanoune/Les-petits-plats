@@ -9,7 +9,6 @@ const updateNbRecettes = document.querySelector(".nb-recettes");
 const containerArticles = document.querySelector(".cards");
 const errorMessage = document.querySelector(".error-message");
 
-
 let allIngredients;
 export const showRecipes = (filteredRecipes) => {
   updateNbRecettes.textContent = filteredRecipes.length;
@@ -139,7 +138,6 @@ function main() {
 
   const searchBar = () => {
     const inputSearchBar = document.querySelector(".search-bar");
-
     const iconeClose = document.querySelector(".icone-close");
 
     inputSearchBar.addEventListener("input", (event) => {
@@ -157,6 +155,7 @@ function main() {
       const inputValue = inputSearchBar.value.toLowerCase();
 
       if (inputValue.length < 3) {
+        errorMessage.textContent = "";
         showRecipes(recipes);
         updateFilters(recipes);
 
@@ -164,26 +163,25 @@ function main() {
       }
 
       const recettesCorrespondantes = recipes.filter((recipe) => {
-        
         return (
           recipe.name.toLowerCase().includes(inputValue) ||
           recipe.description.toLowerCase().includes(inputValue) ||
           recipe.ingredients.some((ingredient) =>
-          ingredient.ingredient.toLowerCase().includes(inputValue)
-
-            
+            ingredient.ingredient.toLowerCase().includes(inputValue)
           )
         );
       });
 
-      if (recettesCorrespondantes.length === 0) {
-        containerArticles.innerHTML = `<p>Aucune recette ne contient '${inputValue}'.
-        Essayer avec des termes similaires comme "tarte aux pommes", "poisson", etc.</p>`;
-        return;
-      }
-
       showRecipes(recettesCorrespondantes);
       updateFilters(recettesCorrespondantes);
+      if (recettesCorrespondantes.length === 0) {
+        errorMessage.textContent = "";
+        const filterNull = document.createElement("span");
+        filterNull.textContent = `Aucune recette ne contient '${inputValue}'.
+        Essayer avec des termes similaires comme "tarte aux pommes", "poisson", etc.`;
+        errorMessage.appendChild(filterNull);
+        return;
+      }
     });
   };
 

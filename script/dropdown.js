@@ -4,11 +4,10 @@ export class Dropdown {
     this.list = [];
     this.filter = "";
     this.opened = false;
-    this.buttonElement = document.querySelector(id + " .dropdown-button");
-    this.contentElement = document.querySelector(id + " .dropdown-content");
+    this.buttonElement = document.querySelector(`${id} .dropdown-button`);
+    this.contentElement = document.querySelector(`${id} .dropdown-content`);
     this.arrowDownIcon = document.querySelector(`${id} .arrow-dropDown`);
     this.arrowUpIcon = document.querySelector(`${id} .arrow-dropUp`);
-
     this.listElement = document.querySelector(id + " .dropdown-list");
     this.closeElement = document.querySelector(`${id} .close`);
     this.inputElement = document.querySelector(id + " .dropdown-input");

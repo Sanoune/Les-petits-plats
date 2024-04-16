@@ -11,42 +11,14 @@
   font-family: "Anton", sans-serif;
 }
 
-:root {
-  --yellow-color: rgba(255, 209, 91, 1); /* Définir la variable personnalisée */
-}
-
-/* section header */
-.header-style {
-  height: 500px;
-  background-position: center;
-}
-.section-text-home h2 {
-  color: rgba(255, 209, 91, 1);
-  font-family: "Anton", sans-serif;
-}
-
 /* section cards */
-.article-img {
-  width: 100%;
-  height: 253px;
-  object-fit: cover;
-  border-radius: 21px 21px 0px 0px;
-}
-
-.max-w{
+.max-w {
   width: 90%;
 }
-/* .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 50px;
-  margin: 3rem;
-} */
 
 .cards article {
   background-color: white;
-  border-radius: 21px;
+  border-radius: 26px;
 }
 
 .recette-texte {
@@ -54,55 +26,15 @@
   font-weight: 500;
 }
 
-.container-element-recette {
-  padding: 12px;
-}
-
-.container-recette {
-  margin-bottom: 20px;
-}
-
-.container-recette p {
-}
-
-.titre-color {
-  color: rgba(122, 122, 122, 1);
-  margin-bottom: 20px;
-}
-
-.title-recipe {
-}
-
-.container-ingredient p {
-}
-.liste-ingredients {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-  font-size: 14px;
-}
-
 .liste-ingredients span {
   display: flex;
   flex-direction: column;
-}
-
-.span-ingredient {
-  color: black;
-  font-weight: 500;
 }
 .span-quantite-unite {
   color: rgba(122, 122, 122, 1);
 }
 
 /* filtre */
-.dropdown-menu {
-  max-height: 300px;
-}
-
 .dropdown-list::-webkit-scrollbar {
   width: 0;
 }
@@ -111,22 +43,7 @@
   background-color: transparent;
 }
 
-/* input  */
-.input-group-text {
-  border: none; /* Supprime la bordure */
-  background-color: transparent; /* Rend le fond transparent */
-  color: black; /* Couleur par défaut du texte */
-  padding: 5px;
-}
-
 /* Styles pour les icônes de recherche et de croix */
-.bi-search {
-  color: black; /* Couleur de l'icône de recherche */
-}
-
-.bi-x {
-  color: black; /* Couleur de l'icône de croix */
-}
 .dropdown-input:focus {
   outline: none;
 }
@@ -135,11 +52,3 @@
   background-color: var(--yellow-color);
   cursor: pointer;
 }
-
-.custom-list-item {
-}
-
-.mt-10 {
-  margin-top: 100px;
-}
-
