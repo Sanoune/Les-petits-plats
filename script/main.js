@@ -11,11 +11,21 @@ const errorMessage = document.querySelector(".error-message");
 
 let allIngredients;
 export const showRecipes = (filteredRecipes) => {
+  errorMessage.textContent = "";
   updateNbRecettes.textContent = filteredRecipes.length;
   containerArticles.innerHTML = "";
   filteredRecipes.forEach((recipe) => {
     createArticle(recipe);
   });
+  if (filteredRecipes.length === 0) {
+    const inputSearchBar = document.querySelector(".search-bar");
+    const inputValue = inputSearchBar.value.toLowerCase();
+    const filterNull = document.createElement("span");
+    filterNull.textContent = `Aucune recette ne contient '${inputValue}'.
+        Essayer avec des termes similaires comme "tarte aux pommes", "poisson", etc.`;
+    errorMessage.appendChild(filterNull);
+    return;
+  }
 };
 
 const updateFilters = (filteredRecipes) => {
@@ -150,12 +160,13 @@ function main() {
       iconeClose.addEventListener("click", () => {
         inputSearchBar.value = "";
         iconeClose.classList.add("hidden");
+        showRecipes(recipes);
+        updateFilters(recipes);
       });
 
       const inputValue = inputSearchBar.value.toLowerCase();
 
       if (inputValue.length < 3) {
-        errorMessage.textContent = "";
         showRecipes(recipes);
         updateFilters(recipes);
 
@@ -174,14 +185,6 @@ function main() {
 
       showRecipes(recettesCorrespondantes);
       updateFilters(recettesCorrespondantes);
-      if (recettesCorrespondantes.length === 0) {
-        errorMessage.textContent = "";
-        const filterNull = document.createElement("span");
-        filterNull.textContent = `Aucune recette ne contient '${inputValue}'.
-        Essayer avec des termes similaires comme "tarte aux pommes", "poisson", etc.`;
-        errorMessage.appendChild(filterNull);
-        return;
-      }
     });
   };
 
