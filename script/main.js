@@ -172,16 +172,19 @@ function main() {
 
         return;
       }
-
-      const recettesCorrespondantes = recipes.filter((recipe) => {
-        return (
+      const recettesCorrespondantes = [];
+      for (let i = 0; i < recipes.length; i++) {
+        const recipe = recipes[i];
+        if (
           recipe.name.toLowerCase().includes(inputValue) ||
           recipe.description.toLowerCase().includes(inputValue) ||
           recipe.ingredients.some((ingredient) =>
             ingredient.ingredient.toLowerCase().includes(inputValue)
           )
-        );
-      });
+        ) {
+          recettesCorrespondantes.push(recipe);
+        }
+      }
 
       showRecipes(recettesCorrespondantes);
       updateFilters(recettesCorrespondantes);
