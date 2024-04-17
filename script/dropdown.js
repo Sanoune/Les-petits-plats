@@ -38,7 +38,7 @@ export class Dropdown {
   }
 
   arrowDropDown() {
-    if (this.arrowDownIcon.classList.contains("hidden")) {
+    if (!this.opened) {
       this.arrowDownIcon.classList.remove("hidden");
       this.arrowUpIcon.classList.add("hidden");
     } else {

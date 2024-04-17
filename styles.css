@@ -4,7 +4,6 @@
 
 * {
   font-family: "Manrope", sans-serif;
-  /* font-family: "Anton", sans-serif; */
 }
 
 .font-anton {
@@ -43,7 +42,6 @@
   background-color: transparent;
 }
 
-/* Styles pour les icônes de recherche et de croix */
 .dropdown-input:focus {
   outline: none;
 }
