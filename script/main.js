@@ -1,15 +1,21 @@
+// Importation des données de recettes, de la fonction de création d'article et du module Dropdown
 import { recipes } from "../data/recipes.js";
 import { createArticle } from "./article.js";
 import { Dropdown } from "./dropdown.js";
 
+// Initialisation des instances des menus déroulants pour les ingrédients, les appareils et les ustensiles
 const dropdownIngredients = new Dropdown("#dropdown-ingredients");
 const dropdownAppareills = new Dropdown("#dropdown-appareils");
 const dropdownUstensils = new Dropdown("#dropdown-ustensils");
+
+// Sélection des éléments du DOM pour la mise à jour dynamique
 const updateNbRecettes = document.querySelector(".nb-recettes");
 const containerArticles = document.querySelector(".cards");
 const errorMessage = document.querySelector(".error-message");
 
 let allIngredients;
+
+// Fonction pour afficher les recettes filtrées
 export const showRecipes = (filteredRecipes) => {
   errorMessage.textContent = "";
   updateNbRecettes.textContent = filteredRecipes.length;
@@ -17,6 +23,8 @@ export const showRecipes = (filteredRecipes) => {
   filteredRecipes.forEach((recipe) => {
     createArticle(recipe);
   });
+
+  // Message erreur
   if (filteredRecipes.length === 0) {
     const inputSearchBar = document.querySelector(".search-bar");
     const inputValue = inputSearchBar.value.toLowerCase();
@@ -28,6 +36,7 @@ export const showRecipes = (filteredRecipes) => {
   }
 };
 
+// Fonction pour mettre à jour les filtres des menus déroulants
 const updateFilters = (filteredRecipes) => {
   const allIngredients = [];
 
@@ -67,6 +76,7 @@ const updateFilters = (filteredRecipes) => {
   dropdownAppareills.updateDOM();
 };
 
+// Fonction pour fermer tous les menus déroulants sauf celui spécifié
 function closeAllDropDown(dropDown) {
   if (dropDown !== dropdownAppareills) {
     dropdownAppareills.close();
@@ -79,7 +89,9 @@ function closeAllDropDown(dropDown) {
   }
 }
 
+// Fonction principale
 function main() {
+  // Écouteurs d'événements pour ouvrir les menus déroulants au clic
   dropdownIngredients.buttonElement.addEventListener("click", () => {
     closeAllDropDown(dropdownIngredients);
     dropdownIngredients.open();
@@ -93,9 +105,11 @@ function main() {
     dropdownUstensils.open();
   });
 
+  // Affichage initial des recettes et mise à jour des filtres
   showRecipes(recipes);
   updateFilters(recipes);
 
+  // Fonction de filtrage pour les événements de changement dans les menus déroulants
   const filterFunction = () => {
     const ingredientFilters = dropdownIngredients.filters;
     const ingredientFiltered = recipes.filter((recipe) => {
@@ -143,9 +157,9 @@ function main() {
     showRecipes(newTabFilter);
     updateFilters(newTabFilter);
   };
-  //version utilisant filter...
-  //Ces deux implémentations doivent se focaliser uniquement sur le champ de recherche principal.
 
+  // Fonction de recherche pour filtrer les recettes en fonction de la saisie dans la barre de recherche principal.
+  //version utilisant filter...
   const searchBar = () => {
     const inputSearchBar = document.querySelector(".search-bar");
     const iconeClose = document.querySelector(".icone-close");
