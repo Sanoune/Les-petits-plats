@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Les petits plats</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-DLMhb7Le.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bfmf7myP.css">
+  </head>
+  <body class="bg-neutral-200">
+    <header
+      class="bg-cover w-full bg-right hauteur-background sm:h-[667px] h-[500px]"
+      style="background-image: url('/assets/img-background-BGiGCyOm.png')"
+    >
+      <div class="flex flex-col">
+        <div
+          class="flex sm:mt-8 sm:ml-5 justify-center sm:justify-start sm:mt-0 mt-12"
+        >
+          <img class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAAAaCAYAAADxGR2SAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAWVSURBVHgB7Vvhdds2ED719b/pCQJPUGeCMhO0nSDSBLEnsDyBognMTCB7AssbqBMYnSDKBCxOPL4gxwMJggBFxvnew6MIHIDDxyNxOECLsiyfgWGxWHwAAUZ2aS4foRtb08ajVS83lzuTrk3KKPtA6d7Iao82ffrXJr2Y9gpW78FcFHQAx21kN6RnJ1zylO/VZy0P33XNYRyujiY9eXK1NHL/gbsv1DcHN7Spv/LUy8atqXegespcPpn0t6Vfzcu2lqsVasDVgylal35YWnXuOmRfTfIyoh79b1i9V59KJPtcesIl36fPWv6MXD14cPWuo6/njj5eA/RC5FTn2qSvHbJ3dR+/QUKQUusOMWXSDuLiBsmDGaGsjHXdIaZM2hnZDOJhGYEr1VE+VN+dRxvr+iVIatRQTRc+ULVCZ+h7KrjzlFPQPtWHYChXqqM8C30Ry2rWV57iJ7cmtVHnQl4Ble/L4etncWiQ28tKz6l6IsiFvALksf0FYdBQ+aAcWehHxWGsWsi7gDBIY92b9Cjko78dxahx8cJRlJVjzwf8RAsGaSEaaoDY/xVUA+3TpuJKYyYu2qx73VavpW1s58q3HTKMsbh6D/25aoMS8vZCHj4j5GVt8fJFkFtZjwTb4bwc6Rn9A01eTzNC6i81R9vbOtTvehLyFMwD0tjH5iq0TameFClREAbF7rtcmYvfIR2OQl5uFMIpYm/SykN+aH9zgYsrdMnQAKfMlRLyMEzM1wihL81B6APbvqXE2/2WzKjN9HA0D0ULCmEIacXjo28ZxNUemn51AVWMuIDpQgl5Mb/U/wL5yhYwuoVuyL1UIYb7cYH+s52sMslnwjdrR1+hmOjrE1616H0OvDjyiwRcKYiHxhfYsUEUulAsHPlrOzZtI4ZR35j0aqd6JY2LApBX24hYD0tR2EdaJR9a6uEUaev9DGfEyFxJbR0gDHxjRrNrjUsIAL0gW0cxGvaGZ6b0qWvgKhUNRgll+LBQ8S8Qjrb4roZ5oYurS8PVZwhHCq4a0Ql2rfEHBMKM+YYWh9LLeCqrt+ERyaMf9KZhWEo7RIoEGy8I/cN5gBnAg6vNBLlyGbWGiDD6LUF2ZxHL0bbJLYU0tD+sh8hbv4hbmCE8uNpNjCvF7r+xq0uuN8iw21yRHH/EcD/20FzkaGgqpE2n+LCk6RXv0Tdfw3BoqE53PXbIITn2FDmZkGAHV2jQsbjCMa88uBLh2DT6arXN5d+1nfbzAbki2LbkSmHePoZRv9AipwFhqkRlXA/rTwgDGmf9UPTC82imwWYowTHRkytcFK+hP0K5cqFt40ULZZcgh/ucoKMOvB9cVyho+tgY28+SLRQpRMYjCvtFddZ4JZT1DcnVONB26mwxY65US9nRId/Xd9+Be2bHl5sbfD72NnkNHBgfdGw/8acAGaE0lU+BL0mHT2V1fnrjKR8E3LAC+YxJdhajJoUm48POAA2uiMNzQwl5GeVnnvJDILkyx7GNuu1NfctG7pqqp46+X96QL7WGfjiKPrUjFuryhT4aeb7IQ9/tllap9kDwbznoC+EulGJ1NIyL08YPwzY0EjAEdPaDc6WIK9xeVqxKX790KN4bXa6gqYOCfgjZKpe+xhi+w4ibtIusXQtFactYOWRVSxkOPGd5G4es6+xDKuRC3pCdzaHow9XYRi393Q4jM43/LtrnzMm3Vlaxgv7AsfIox5ISxymik9r92PaQ/QxvG/eJZFOiy53gbpWC/ijA3zU92VtSo6ap3Ofrt40QM501KMoxN64Uu9fsfnCEixbEPi+xBjrRN8bZjyVU27BaKD4pjLtE8As1VxiX1kLxFLniRqrZPfeHg/6AS4e48LDX3iGC+R/qiNACRgRtMii61RP64kwOjKvj3A5npQK9FNd0i0aseXjzfxqwOxspC6IQAAAAAElFTkSuQmCC" alt="logo" />
+          <img class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAH/SURBVHgBxVXRcYMwDFXbAcIG8Wf/wgh0g2yQbFA2gA2gE5ANmg1IJiCZADKByQTUz5F8hgKl14++Ox3Ylp+fbMl+oeVQbK/cbumPiIx9GtPGuoGhr2CfUTxN9IfGMkwMgoDCMKQoimi9XtvB2+1Gp9PJGqMx9sbfWbxDmSHtkiTptNbdFOq6tj5eNPEccQIno9ROFII4jjullCPB+H6/7/l447sxYoVBOInaNE2/EcLwL/3wGSygmauHGlshaoTY7LXrG26JqPUXAIfpK33iCE7YP6AoCjtpt9t1P2G73VrfsiyH0UZCjpRyCqHI3545wAdqEaG0mTwX8koGq6qyg3med0shakUcn0n1zOShUWp/LpeL/W42G1oK1AFwPp/9tnp2qcLk9/u9116C1Wo11h048qZpeo4SwRKIIJnbtvbaaYW8ETKUOXC9Xmkpjsej/cr2MJdTh5N12YHD9XN+DvAhrge/TV62ROhAmQPIWRpcA1PEUkjihwpmcuVHh6pyxZBlmXXC5MPh0CNFhCg0Ica/L4oeddMDVtKYICp8AikURMMlbsdEjBdFTSN3iz0TWUAmySIocxDLBYbI5Izgywtq5phEyKtbElTsFECKaHgr6iHx1EukjKXEdzMKCmmGVwlAHuMV4nwGPtj/V++qosfrUlL/HdXclxoL6D/wBXBrzhuwhsuZAAAAAElFTkSuQmCC" alt="point" />
+        </div>
+        <div class="flex justify-center mt-20 sm:mt-52 mb-6">
+          <h2
+            class="text-yellow-400 font-anton sm:text-[44px] text-[33px] text-center"
+          >
+            CHERCHEZ PARMI PLUS DE 1500 RECETTES <br />
+            DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
+          </h2>
+        </div>
+        <div class="xl:pr-72 xl:pl-72 md:pr-20 md:pl-20 pl-3 pr-3">
+          <div class="relative max-w w-full">
+            <input
+              class="search-bar bg-white rounded-lg w-full h-16 appearance-none"
+              type="text"
+              name="search"
+              placeholder="Rechercher une recette, un ingrédient, ..."
+            />
+            <div class="flex items-center gap-4 absolute right-1 top-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 icone-close hidden text-gray-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-12 h-12 bg-black text-white rounded-lg p-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div
+      class="dropdown flex flex-col m-auto sm:gap-0 sm:pt-20 sm:pr-20 sm:pl-20 pr-8 pl-8 pt-8 pb-0"
+    >
+      <div
+        class="flex sm:flex-row justify-between flex-col-reverse sm:gap-0 md:gap-36 gap-4 items-stretch sm:items-center"
+      >
+        <div
+          class="flex md:flex-row sm:gap-O gap-12 flex-wrap flex-col sm:justify-between justify-center flex-1"
+        >
+          <div
+            class="dropdown flex flex-col relative flex-1 sm:max-w-48"
+            id="dropdown-ingredients"
+          >
+            <button
+              class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+              type="button"
+            >
+              Ingredients
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 arrow-dropDown"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden arrow-dropUp"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                />
+              </svg>
+            </button>
+            <div
+              class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu max-h-72 dropdown-content flex-col overflow-hidden"
+            >
+              <div class="p-4 pb-0">
+                <div class="flex input-group border">
+                  <input
+                    type="text"
+                    class="flex dropdown-input focus:outline-none w-full"
+                    placeholder="Recherche"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 hidden close text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <ul class="dropdown-list list-unstyled p-4 overflow-auto"></ul>
+            </div>
+          </div>
+
+          <div
+            class="dropdown flex flex-col relative flex-1 sm:max-w-48"
+            id="dropdown-appareils"
+          >
+            <button
+              class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+              type="button"
+            >
+              Appareils
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 arrow-dropDown"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden arrow-dropUp"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                />
+              </svg>
+            </button>
+            <div
+              class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu max-h-72 dropdown-content flex-col overflow-hidden"
+            >
+              <div class="p-4 pb-0">
+                <div class="flex input-group border">
+                  <input
+                    type="text"
+                    class="flex dropdown-input focus:outline-none w-full"
+                    placeholder="Recherche"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 hidden close text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <ul class="dropdown-list list-unstyled p-4 overflow-auto"></ul>
+            </div>
+          </div>
+
+          <div
+            class="dropdown flex flex-col relative flex-1 sm:max-w-48"
+            id="dropdown-ustensils"
+          >
+            <button
+              class="flex items-center justify-between p-4 bg-white dropdown-button rounded-xl h-[56px]"
+              type="button"
+            >
+              Ustensils
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 arrow-dropDown"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hidden arrow-dropUp"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                />
+              </svg>
+            </button>
+            <div
+              class="z-10 top-10 w-full absolute bg-white hidden rounded-b-xl dropdown-menu max-h-72 dropdown-content flex-col overflow-hidden"
+            >
+              <div class="p-4 pb-0">
+                <div class="flex input-group border">
+                  <input
+                    type="text"
+                    class="flex dropdown-input focus:outline-none w-full"
+                    placeholder="Recherche"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 hidden close text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6 text-gray-500"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <ul class="dropdown-list list-unstyled p-4 overflow-auto"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="flex-initial xl:flex-1">
+          <div
+            class="flex relative gap-2 items-center justify-start sm:justify-end"
+          >
+            <span class="nb-recettes font-anton text-xl"> </span>
+            <span class="font-anton text-xl"> recettes</span>
+          </div>
+        </div>
+      </div>
+      <div class="filters-select flex flex-wrap sm:gap-10 gap-2 mt-8"></div>
+    </div>
+    <div class="error-message flex justify-center font-bold"></div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 m-auto sm:p-20 p-8 cards"
+    ></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
