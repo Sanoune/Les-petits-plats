@@ -45,8 +45,3 @@
 .dropdown-input:focus {
   outline: none;
 }
-
-.custom-list-item:hover {
-  background-color: var(--yellow-color);
-  cursor: pointer;
-}

@@ -4,7 +4,8 @@ export const createArticle = (data) => {
   const article = document.createElement("article");
   article.classList.add("relative");
   const imagePlat = document.createElement("img");
-  imagePlat.src = `./assets/medias/${image}`;
+  imagePlat.src = `./medias/${image}`;
+
   imagePlat.classList =
     "w-full h-64 object-cover rounded-tl-3xl rounded-tr-3xl";
   const containerTime = document.createElement("div");

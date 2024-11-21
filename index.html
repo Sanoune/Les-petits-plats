@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./dist/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Les petits plats</title>
 
     <link
@@ -32,14 +32,14 @@
   <body class="bg-neutral-200">
     <header
       class="bg-cover w-full bg-right hauteur-background sm:h-[667px] h-[500px]"
-      style="background-image: url('./assets/img-background.png')"
+      style="background-image: url('./img-background.png')"
     >
       <div class="flex flex-col">
         <div
           class="flex sm:mt-8 sm:ml-5 justify-center sm:justify-start sm:mt-0 mt-12"
         >
-          <img class="" src="./assets/logo/logo.png" alt="logo" />
-          <img class="" src="./assets/logo/point.png" alt="point" />
+          <img class="" src="./logo/logo.png" alt="logo" />
+          <img class="" src="./logo/point.png" alt="point" />
         </div>
         <div class="flex justify-center mt-20 sm:mt-52 mb-6">
           <h2
@@ -52,10 +52,10 @@
         <div class="xl:pr-72 xl:pl-72 md:pr-20 md:pl-20 pl-3 pr-3">
           <div class="relative max-w w-full">
             <input
-              class="search-bar bg-white rounded-lg w-full h-16 appearance-none"
+              class="search-bar bg-white rounded-lg w-full h-16 appearance-none p-2"
               type="text"
               name="search"
-              placeholder="Rechercher une recette, un ingrédient, ..."
+              placeholder="Rechercher une recette, un ingrédient ..."
             />
             <div class="flex items-center gap-4 absolute right-1 top-2">
               <svg
@@ -361,12 +361,6 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 m-auto sm:p-20 p-8 cards"
     ></div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
     <script src="./script/main.js" type="module"></script>
   </body>
 </html>

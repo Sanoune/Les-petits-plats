@@ -12,6 +12,7 @@ const dropdownUstensils = new Dropdown("#dropdown-ustensils");
 const updateNbRecettes = document.querySelector(".nb-recettes");
 const containerArticles = document.querySelector(".cards");
 const errorMessage = document.querySelector(".error-message");
+let searchRecipes;
 
 let allIngredients;
 
@@ -20,7 +21,7 @@ export const showRecipes = (filteredRecipes) => {
   errorMessage.textContent = "";
   updateNbRecettes.textContent = filteredRecipes.length;
   containerArticles.innerHTML = "";
-  filteredRecipes.forEach((recipe) => {
+  filteredRecipes.slice(0, 6).forEach((recipe) => {
     createArticle(recipe);
   });
 
@@ -78,14 +79,17 @@ const updateFilters = (filteredRecipes) => {
 
 // Fonction pour fermer tous les menus déroulants sauf celui spécifié
 function closeAllDropDown(dropDown) {
-  if (dropDown !== dropdownAppareills) {
-    dropdownAppareills.close();
-  }
-  if (dropDown !== dropdownIngredients) {
+  if (dropDown === dropdownAppareills) {
     dropdownIngredients.close();
-  }
-  if (dropDown !== dropdownUstensils) {
     dropdownUstensils.close();
+  }
+  if (dropDown === dropdownIngredients) {
+    dropdownAppareills.close();
+    dropdownUstensils.close();
+  }
+  if (dropDown === dropdownUstensils) {
+    dropdownAppareills.close();
+    dropdownIngredients.close();
   }
 }
 
@@ -108,11 +112,12 @@ function main() {
   // Affichage initial des recettes et mise à jour des filtres
   showRecipes(recipes);
   updateFilters(recipes);
-
-  // Fonction de filtrage pour les événements de changement dans les menus déroulants
+  searchRecipes = recipes;
+  // Fonction de filtrage pour les recettes depuis les menus déroulants
   const filterFunction = () => {
     const ingredientFilters = dropdownIngredients.filters;
-    const ingredientFiltered = recipes.filter((recipe) => {
+    // recherche les recettes correspondant aux filtres ingredients selectionnés
+    const ingredientFiltered = searchRecipes.filter((recipe) => {
       return ingredientFilters.every((filter) => {
         return recipe.ingredients.some((ingredient) => {
           return filter === ingredient.ingredient.trim().toLowerCase();
@@ -121,7 +126,7 @@ function main() {
     });
 
     const appareilFilters = dropdownAppareills.filters;
-
+    // recherche les recettes restantes celles qui correspondre aux filtres appareils
     const appareilFiltered = ingredientFiltered.filter((recipe) => {
       return appareilFilters.every((filter) => {
         return filter === recipe.appliance.trim().toLowerCase();
@@ -129,7 +134,7 @@ function main() {
     });
 
     const ustensilFilters = dropdownUstensils.filters;
-
+    // recherche les recettes restantes celles qui correspondre aux filtres ustensils
     const ustensilFiltered = appareilFiltered.filter((recipe) => {
       return ustensilFilters.every((filter) => {
         return recipe.ustensils.some((ustensil) => {
@@ -140,6 +145,8 @@ function main() {
 
     return ustensilFiltered;
   };
+
+  //Met a jour cards et dropDown avec tableau filtré
   dropdownIngredients.onChange = () => {
     const newTabFilter = filterFunction();
     showRecipes(newTabFilter);
@@ -174,31 +181,30 @@ function main() {
       iconeClose.addEventListener("click", () => {
         inputSearchBar.value = "";
         iconeClose.classList.add("hidden");
-        showRecipes(recipes);
-        updateFilters(recipes);
+        searchRecipes = recipes;
+        const newRecipe = filterFunction();
+        showRecipes(newRecipe);
+        updateFilters(newRecipe);
       });
 
-      const inputValue = inputSearchBar.value.toLowerCase();
-
+      const inputValue = inputSearchBar.value.toLowerCase().trim();
       if (inputValue.length < 3) {
-        showRecipes(recipes);
-        updateFilters(recipes);
-
-        return;
+        searchRecipes = recipes;
+      } else {
+        const recettesCorrespondantes = recipes.filter((recipe) => {
+          return (
+            recipe.name.toLowerCase().includes(inputValue) ||
+            recipe.description.toLowerCase().includes(inputValue) ||
+            recipe.ingredients.some((ingredient) =>
+              ingredient.ingredient.toLowerCase().includes(inputValue)
+            )
+          );
+        });
+        searchRecipes = recettesCorrespondantes;
       }
-
-      const recettesCorrespondantes = recipes.filter((recipe) => {
-        return (
-          recipe.name.toLowerCase().includes(inputValue) ||
-          recipe.description.toLowerCase().includes(inputValue) ||
-          recipe.ingredients.some((ingredient) =>
-            ingredient.ingredient.toLowerCase().includes(inputValue)
-          )
-        );
-      });
-
-      showRecipes(recettesCorrespondantes);
-      updateFilters(recettesCorrespondantes);
+      const newRecipe = filterFunction();
+      showRecipes(newRecipe);
+      updateFilters(newRecipe);
     });
   };
 
